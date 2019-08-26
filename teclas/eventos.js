@@ -6,7 +6,8 @@ var teclas =
     RIGHT:39
 };
 
-document.addEventListener("keydown",dibujarTeclado);
+//document.addEventListener("keydown",dibujarTeclado);
+document.addEventListener("mousedown",dibujarMouse);
 var cuadrito = document.getElementById("area_de_dibujo");
 var papel = cuadrito.getContext("2d");
 var x = 100;
@@ -24,7 +25,7 @@ function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal, lienzo)
     lienzo.closePath(); 
 }
 
-function dibujarTeclado(eventox)
+/*function dibujarTeclado(eventox)
 {
     var colorcito = "brown";
     var movimiento = 5;
@@ -47,4 +48,11 @@ function dibujarTeclado(eventox)
             x = x+movimiento;
             break;            
     }
+}*/
+
+function dibujarMouse(evento)
+{
+    var colorcito = "brown";
+    dibujarLinea(colorcito,x,y,evento.x,evento.y,papel);
+    //console.log(evento);
 }
